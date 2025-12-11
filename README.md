@@ -1,41 +1,76 @@
 
-**Proyecto**: INGEOCIMYC — Maquetado de la página principal
-- **Descripción**: Versión estática de la página principal para el laboratorio de geotecnia y concretos INGEOCIMYC, creada tomando como guía el sitio oficial `https://ingeocimyc.com.co/`. Incluye secciones: inicio, servicios, proyectos, contacto y clientes.
+# Project Title
 
-**Archivos principales**
-- `index.html`: estructura y contenido de la página.
-- `styles.css`: estilos globales del sitio.
-- `script.js`: script de interacción (menú, lightbox, formularios y enlaces de contacto).
-- `assets/`: imágenes y recursos usados por la página.
+Página Web – Laboratorio de Geotecnia y Concretos
 
-**Características implementadas**
-- Enlaces de contacto rápidos (teléfono, correo, Instagram, Facebook, WhatsApp).
-- Botón flotante de WhatsApp (`.whatsapp-fab`).
-- Lightbox para ver imágenes de proyectos.
-- Formulario de contacto con notificación rápida (toast).
+## Documentation
 
-**Cómo probar localmente**
-- Abrir `index.html` directamente en el navegador (prueba rápida).
-- O servir desde un servidor local para evitar problemas con rutas y seguridad (recomendado):
+Este proyecto consiste en el desarrollo de la primera página web oficial del Laboratorio de Geotecnia y Concretos, una empresa especializada en:
 
-```powershell
-# desde la carpeta del proyecto
-# si tienes Python 3 instalado
-python -m http.server 8000
-# luego abrir http://localhost:8000
-```
+Análisis de suelos
 
-**Editar el número de WhatsApp / mensaje**
-- En `script.js` hay una constante para el número y el mensaje (formato internacional sin `+`). Busca `WHATSAPP_NUMBER` y `WHATSAPP_MESSAGE` y cámbialos por tus valores.
-- Ejemplo: `const WHATSAPP_NUMBER = '5730XXXXXXXX';`
+Control de calidad
 
-Si prefieres que el botón “Llámanos” abra WhatsApp en vez de iniciar una llamada telefónica, cambia el `href="tel:3013517044"` en `index.html` por un enlace tipo `https://wa.me/5730XXXXXXXX?text=Tu%20mensaje%20aqui`.
+Ensayos de materiales
 
-**Créditos y referencia**
-- Esta maqueta fue desarrollada tomando como guía la información pública disponible en `https://ingeocimyc.com.co/` (servicios, datos de contacto y certificaciones).
+Apoyo técnico para proyectos de ingeniería civil
 
-**Siguientes pasos sugeridos**
-- Mover estilos del aviso de WhatsApp a `styles.css` para mantener consistencia.
-- Añadir validación y envío real para el formulario (backend o servicio de terceros).
-- Preparar instrucciones de despliegue si quieres publicar la maqueta.
+La página fue creada utilizando HTML, CSS y JavaScript, siguiendo buenas prácticas de diseño, estructura e interactividad.
+## About the Company
 
+LABORATORIO DE GEOTECNIA Y CONCRETOS
+Expertos en análisis de suelos, control de calidad y ensayos de materiales.
+Tecnología de punta y personal altamente calificado para garantizar resultados confiables en proyectos de ingeniería civil.
+## Benefits of Having the Website
+
+La empresa anteriormente no contaba con un sitio web oficial. Con este proyecto, obtiene beneficios como:
+
+Presencia digital profesional
+
+Mayor visibilidad en buscadores
+
+Información accesible 24/7
+
+Mejor comunicación con los clientes
+
+Base para futuras funciones digitales
+## Tech Stack
+
+HTML5 – Estructura semántica del sitio
+
+CSS3 – Diseño, layout, estilos responsivos
+
+JavaScript – Interactividad y dinámicas del sitio
+## Code Structure
+
+HTML – index.html
+
+Estructura semántica usando <header>, <nav>, <main> y <footer>.
+
+Organización clara del contenido.
+
+Separación correcta entre estructura, estilos y scripts.
+## CSS – styles.css
+
+Variables globales para colores y tipografías.
+
+Uso de Flexbox y/o Grid para organización visual.
+
+Media queries para diseño responsivo.
+
+Clases reutilizables que facilitan el mantenimiento.
+## JavaScript – script.js
+
+Manejo de eventos del usuario.
+
+Funciones dinámicas que mejoran la usabilidad.
+
+Código modular preparado para futuras expansiones.
+## Contact
+
+301 351 7044
+
+coordinador@ingeocimyc.com.co
+## Authors
+
+Jhoan Esteban Baena Correa - 192451

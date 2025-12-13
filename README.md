@@ -74,3 +74,4 @@ coordinador@ingeocimyc.com.co
 ## Authors
 
 Jhoan Esteban Baena Correa - 192451
+Miguel Ángel Ochoa López - 192641

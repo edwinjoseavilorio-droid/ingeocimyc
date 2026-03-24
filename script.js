@@ -1,76 +1,105 @@
-document.addEventListener('DOMContentLoaded', function(){
+/**
+ * script.js - Script principal
+ */
+
+// Cargar fragmento HTML
+async function loadFragment(id, url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const html = await res.text();
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  } catch (err) {
+    console.warn('Error:', url, err);
+  }
+}
+
+// Mostrar notificación
+function showToast(msg) {
+  let toast = document.querySelector('.toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+// Cargar productos desde JSON
+async function loadProducts() {
+  try {
+    const res = await fetch('data/products.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const products = await res.json();
+    
+    const container = document.querySelector('.grid.cards');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    products.forEach(product => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <img class="product-img" src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p class="product-desc">${product.description}</p>
+        <p class="product-price">$${Number(product.price).toLocaleString('es-CO')}</p>
+        <button class="btn primary">Más info</button>
+      `;
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error('Error cargando productos:', err);
+  }
+}
+
+// Inicializar
+function initUI() {
+  // Menú móvil
   const menuBtn = document.querySelector('.menu-btn');
   const mainNav = document.querySelector('.main-nav');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', function(){
+  
+  if (menuBtn && mainNav) {
+    menuBtn.addEventListener('click', () => {
       mainNav.classList.toggle('open');
-      const open = mainNav.classList.contains('open');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
 
-  function showToast(msg){
-    let toast = document.querySelector('.toast');
-    if(!toast){
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    toast.classList.add('show');
-    if(window._toastTimer) clearTimeout(window._toastTimer);
-    window._toastTimer = setTimeout(()=>{
-      toast.classList.remove('show');
-    }, 3000);
-  }
-
+  // Formulario de contacto
   const contactForm = document.querySelector('.contact-form');
-  if(contactForm){
-    contactForm.addEventListener('submit', function(e){
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('te contactare muy pronto');
+      showToast('Mensaje enviado!');
       contactForm.reset();
     });
   }
 
-  const lightbox = document.createElement('div');
-  lightbox.id = 'lightbox';
-  lightbox.className = 'lightbox';
-  lightbox.innerHTML = `
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Cerrar">×</button>
-      <img src="" alt="">
-    </div>`;
-  document.body.appendChild(lightbox);
+  // Cargar productos
+  loadProducts();
+}
 
-  const lbImg = lightbox.querySelector('img');
-  const lbClose = lightbox.querySelector('.lightbox-close');
+// Cargar componentes
+const components = [
+  { id: 'site-header', url: 'components/header/header.html' },
+  { id: 'site-hero', url: 'components/hero/hero.html' },
+  { id: 'site-cert', url: 'components/cert/cert.html' },
+  { id: 'site-services', url: 'components/services/services.html' },
+  { id: 'site-projects', url: 'components/projects/projects.html' },
+  { id: 'site-contact', url: 'components/contact/contact.html' },
+  { id: 'site-clients', url: 'components/clients/clients.html' },
+  { id: 'site-footer', url: 'components/footer/footer.html' }
+];
 
-  document.querySelectorAll('.lightbox-trigger').forEach(img => {
-    img.addEventListener('click', (e) => {
-      const src = img.dataset.src || img.src;
-      lbImg.src = src;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  lbClose.addEventListener('click', () => {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    lbImg.src = '';
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) {
-      lbClose.click();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){
-      if(lightbox.classList.contains('open')) lbClose.click();
-      if(mainNav.classList.contains('open')) mainNav.classList.remove('open');
-    }
-  });
+document.addEventListener('DOMContentLoaded', async () => {
+  await Promise.all(components.map(c => loadFragment(c.id, c.url)));
+  initUI();
 });
+

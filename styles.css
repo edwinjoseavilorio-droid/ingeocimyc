@@ -445,3 +445,111 @@ body {
     .project img{height:140px}
     .clients-grid img{height:60px}
 }
+.product-desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.card:hover .product-desc {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 10px;
+}
+
+/* ===== LOGIN STYLES ===== */
+.login-page {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(20, 30, 40, 0.05);
+}
+
+.login-page h1 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.login-form {
+  margin-bottom: 24px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e3e7ee;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(3, 79, 132, 0.1);
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.form-error {
+  margin-top: 12px;
+  padding: 10px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 6px;
+  font-size: 14px;
+  display: none;
+}
+
+.form-error:not(:empty) {
+  display: block;
+}
+
+.login-info {
+  background: #f0f7fb;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.login-info small {
+  display: block;
+  margin-top: 6px;
+  color: #ea580c;
+}
+
+@media(max-width:600px) {
+  .login-page {
+    margin: 30px auto;
+    padding: 30px 20px;
+  }
+
+  .login-page h1 {
+    font-size: 20px;
+  }
+
+  .login-form input {
+    font-size: 16px;
+  }
+}

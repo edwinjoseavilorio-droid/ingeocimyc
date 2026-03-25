@@ -7,12 +7,9 @@
   
   <!-- VERIFICACIÓN DE AUTENTICACIÓN - DEBE SER LO PRIMERO -->
   <script>
-    // Si el usuario NO está autenticado, redirige al login
-    // localStorage.getItem('loggedIn') devuelve 'true' si está logueado, null si no
     if (localStorage.getItem('loggedIn') !== 'true') {
-      // window.location.replace() redirige sin guardar en el historial del navegador
       window.location.replace('./components/login/login.html');
-      document.write('');  // Previene que el contenido se cargue
+      document.write('');
       document.close();
     }
   </script>

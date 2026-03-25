@@ -52,46 +52,31 @@
   </main>
 
   <script>
-    // =========================================
-    // CREDENCIALES Y VALIDACIÓN DE LOGIN
-    // =========================================
-    
-    // Credenciales válidas (solo para este proyecto educativo)
     const VALID_USER = 'admin';
     const VALID_PASS = '1234';
 
-    // Capturar el evento de envío del formulario
     document.getElementById('login-form').addEventListener('submit', (e) => {
-      e.preventDefault();  // Prevenir que recargue la página
+      e.preventDefault();
       
-      // Obtener los valores ingresados por el usuario
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
       const errorMsg = document.getElementById('error-msg');
       const submitBtn = document.querySelector('button[type="submit"]');
 
-      // Desabilitar el botón mientras se verifica
       submitBtn.disabled = true;
       submitBtn.textContent = 'Verificando...';
 
-      // Simular una verificación con pequeño delay
       setTimeout(() => {
-        // Comparar credenciales ingresadas con las válidas
         if (username === VALID_USER && password === VALID_PASS) {
-          // ✅ Credenciales correctas
-          // Guardar autenticación en localStorage para que index.html la pueda leer
           localStorage.setItem('loggedIn', 'true');
           
-          // Mostrar mensaje de éxito
           errorMsg.textContent = '✅ Acceso correcto. Redirigiendo...';
           errorMsg.style.color = '#4caf50';
           
-          // Redirigir a la página principal después de 500ms
           setTimeout(() => {
             window.location.replace('../../index.html');
           }, 500);
         } else {
-          // ❌ Credenciales incorrectas
           errorMsg.textContent = '❌ Usuario o contraseña incorrectos';
           errorMsg.style.color = '#d32f2f';
           errorMsg.style.marginTop = '12px';
@@ -99,14 +84,12 @@
           errorMsg.style.backgroundColor = '#ffebee';
           errorMsg.style.borderRadius = '4px';
           
-          // Restaurar el botón para que intente de nuevo
           submitBtn.disabled = false;
           submitBtn.textContent = 'Entrar';
           
-          // Limpiar los campos para que escriba nuevamente
           document.getElementById('username').value = '';
           document.getElementById('password').value = '';
-          document.getElementById('username').focus();  // Poner el cursor en usuario
+          document.getElementById('username').focus();
         }
       }, 500);
     });

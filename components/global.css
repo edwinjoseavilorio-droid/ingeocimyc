@@ -1,0 +1,158 @@
+/* Global CSS Variables and Base Styles */
+:root {
+    --bg: #f7f9fb;
+    --card: #ffffff;
+    --primary: #034f84;
+    --muted: #6b7280;
+    --accent: #012a4a;
+    --maxw: 1100px;
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Segoe UI, Roboto, Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: #111;
+}
+
+.container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 24px
+}
+
+.grid {
+    display: grid;
+    gap: 16px
+}
+
+.section {
+    padding: 48px 0
+}
+
+.section.alt {
+    background: transparent
+}
+
+.lede {
+    color: var(--muted);
+    margin-bottom: 18px
+}
+
+.small-link {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid transparent
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: #fff
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--primary);
+    border-color: rgba(0, 119, 182, 0.12)
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200
+}
+
+.lightbox.open {
+    display: flex
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 8px
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #fff;
+    border: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    cursor: pointer
+}
+
+.whatsapp-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(2, 2, 2, 0.2);
+    z-index: 1400
+}
+
+.whatsapp-fab svg {
+    display: block
+}
+
+.whatsapp-fab i {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    bottom: 28px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(2, 2, 2, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s, transform .25s;
+    z-index: 1500;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}

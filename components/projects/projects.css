@@ -1,0 +1,60 @@
+/* Projects Styles */
+.projects {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
+}
+
+.project {
+    background: linear-gradient(135deg, #e9f2fb, #f6fbff);
+    height: auto;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-weight: 600;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(2, 10, 30, 0.06);
+}
+
+.project-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform .28s ease
+}
+
+.project:hover .project-img {
+    transform: scale(1.04)
+}
+
+.project-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px
+}
+
+@media(max-width: 900px) {
+    .project-img {
+        height: 200px
+    }
+}
+
+@media(max-width: 520px) {
+    .project-img {
+        height: 160px
+    }
+
+    .project-caption {
+        font-size: 13px;
+        padding: 8px
+    }
+}

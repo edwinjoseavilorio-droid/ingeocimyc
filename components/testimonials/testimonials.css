@@ -1,0 +1,24 @@
+/* Testimonials Styles */
+.testimonials .testimonials-wrap {
+    position: relative;
+    min-height: 100px
+}
+
+.testimonial {
+    display: none;
+    background: var(--card);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(20, 30, 40, 0.04);
+    color: var(--muted)
+}
+
+.testimonial.active {
+    display: block
+}
+
+.testimonial footer {
+    margin-top: 8px;
+    color: var(--primary);
+    font-weight: 600
+}

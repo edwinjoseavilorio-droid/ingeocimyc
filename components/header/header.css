@@ -1,0 +1,81 @@
+/* Header Styles */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e6e9ee
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none
+}
+
+.logo {
+    height: 100px
+}
+
+.main-nav {
+    display: flex;
+    align-items: center
+}
+
+.main-nav a {
+    margin-left: 18px;
+    color: var(--muted);
+    text-decoration: none
+}
+
+.main-nav a i {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: var(--primary);
+}
+
+.main-nav.open {
+    display: block;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 24px;
+    border-bottom: 1px solid #e6e9ee
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer
+}
+
+.menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+    margin: 4px 0;
+    border-radius: 2px
+}
+
+@media(max-width: 800px) {
+    .header-inner {
+        flex-direction: row
+    }
+
+    .main-nav {
+        display: none
+    }
+
+    .menu-btn {
+        display: block
+    }
+}

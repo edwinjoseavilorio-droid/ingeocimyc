@@ -1,0 +1,38 @@
+/* Services/Cards Styles */
+.cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+}
+
+.card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(20, 30, 40, 0.05)
+}
+
+.card h3 {
+    margin-top: 0
+}
+
+.card h3 i {
+    margin-right: 10px;
+    color: var(--primary);
+    font-size: 18px;
+    vertical-align: middle
+}
+
+.product-desc {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+}
+
+.card:hover .product-desc {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,33 @@
+/* Hero Section Styles */
+.hero {
+    padding: 64px 0;
+    background: linear-gradient(180deg, #f0f7fb 0%, #fff 100%)
+}
+
+.hero h1 {
+    margin: 0 0 6px;
+    font-size: 30px;
+    color: var(--accent)
+}
+
+.hero h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    color: var(--primary);
+    letter-spacing: 1px
+}
+
+.hero p {
+    margin: 0 0 18px;
+    color: var(--muted)
+}
+
+.cta-row .btn {
+    margin-right: 12px
+}
+
+@media(max-width: 800px) {
+    .hero h1 {
+        font-size: 22px
+    }
+}

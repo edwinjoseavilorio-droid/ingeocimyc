@@ -1,0 +1,38 @@
+/* Clients Grid Styles */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    align-items: center
+}
+
+.clients-grid img {
+    max-width: 100%;
+    height: 110px;
+    object-fit: contain;
+    filter: grayscale(40%);
+    opacity: 0.95;
+    transition: transform .18s ease;
+}
+
+.clients-grid img:hover {
+    transform: scale(1.06)
+}
+
+@media(max-width: 900px) {
+    .clients-grid img {
+        height: 80px
+    }
+}
+
+@media(max-width: 520px) {
+    .clients-grid img {
+        height: 60px
+    }
+}
+
+@media(max-width: 800px) {
+    .clients-grid img {
+        height: 60px
+    }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Iniciar Sesión — INGEOCIMYC</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .login-page {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 20px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <main class="login-page">
+    <h1>🔐 Iniciar Sesión</h1>
+    
+    <form id="login-form" class="login-form">
+      <label for="username">
+        Usuario
+        <input id="username" type="text" required autofocus placeholder="Ingresa tu usuario">
+      </label>
+      
+      <label for="password">
+        Contraseña
+        <input id="password" type="password" required placeholder="Ingresa tu contraseña">
+      </label>
+      
+      <button class="btn primary" type="submit">Entrar</button>
+      
+      <div id="error-msg" class="form-error" aria-live="polite"></div>
+    </form>
+
+    <p class="login-info">
+      <strong>👤 Demo:</strong> admin<br>
+      <strong>🔑 Contraseña:</strong> 1234<br>
+      <small style="color: #999; margin-top: 10px; display: block;">⚠️ Solo con fines educativos. No es seguro para producción.</small>
+    </p>
+  </main>
+
+  <script>
+    // =========================================
+    // CREDENCIALES Y VALIDACIÓN DE LOGIN
+    // =========================================
+    
+    // Credenciales válidas (solo para este proyecto educativo)
+    const VALID_USER = 'admin';
+    const VALID_PASS = '1234';
+
+    // Capturar el evento de envío del formulario
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();  // Prevenir que recargue la página
+      
+      // Obtener los valores ingresados por el usuario
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorMsg = document.getElementById('error-msg');
+      const submitBtn = document.querySelector('button[type="submit"]');
+
+      // Desabilitar el botón mientras se verifica
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verificando...';
+
+      // Simular una verificación con pequeño delay
+      setTimeout(() => {
+        // Comparar credenciales ingresadas con las válidas
+        if (username === VALID_USER && password === VALID_PASS) {
+          // ✅ Credenciales correctas
+          // Guardar autenticación en localStorage para que index.html la pueda leer
+          localStorage.setItem('loggedIn', 'true');
+          
+          // Mostrar mensaje de éxito
+          errorMsg.textContent = '✅ Acceso correcto. Redirigiendo...';
+          errorMsg.style.color = '#4caf50';
+          
+          // Redirigir a la página principal después de 500ms
+          setTimeout(() => {
+            window.location.replace('../../index.html');
+          }, 500);
+        } else {
+          // ❌ Credenciales incorrectas
+          errorMsg.textContent = '❌ Usuario o contraseña incorrectos';
+          errorMsg.style.color = '#d32f2f';
+          errorMsg.style.marginTop = '12px';
+          errorMsg.style.padding = '10px';
+          errorMsg.style.backgroundColor = '#ffebee';
+          errorMsg.style.borderRadius = '4px';
+          
+          // Restaurar el botón para que intente de nuevo
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Entrar';
+          
+          // Limpiar los campos para que escriba nuevamente
+          document.getElementById('username').value = '';
+          document.getElementById('password').value = '';
+          document.getElementById('username').focus();  // Poner el cursor en usuario
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>

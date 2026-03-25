@@ -1,0 +1,92 @@
+/* Contact Styles */
+.contact-grid {
+    grid-template-columns: 1fr 320px
+}
+
+.contact-form {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(20, 30, 40, 0.05)
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--muted)
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e3e7ee;
+    border-radius: 6px;
+    margin-top: 6px
+}
+
+.contact-info {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(20, 30, 40, 0.05);
+}
+
+.contact-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info h3 i {
+    margin-right: 10px;
+    color: var(--primary);
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0
+}
+
+.contact-list li {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.06)
+}
+
+.contact-list li:last-child {
+    border-bottom: 0
+}
+
+.contact-list i {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 79, 132, 0.06);
+    color: var(--primary);
+    font-size: 18px
+}
+
+.contact-list a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none
+}
+
+.contact-list .contact-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 4px
+}
+
+@media(max-width: 800px) {
+    .contact-grid {
+        grid-template-columns: 1fr
+    }
+}
